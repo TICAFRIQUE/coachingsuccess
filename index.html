@@ -720,6 +720,44 @@
         opacity: 1;
         transform: none;
       }
+      /* Bouton retour en haut : au-dessus du bouton WhatsApp */
+      .to-top {
+        position: fixed;
+        right: 32px;
+        bottom: 100px;
+        z-index: 29;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        border: 1px solid var(--line);
+        background: var(--paper);
+        color: var(--ink);
+        display: grid;
+        place-items: center;
+        padding: 0;
+        cursor: pointer;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition:
+          opacity 0.25s,
+          transform 0.25s,
+          visibility 0.25s,
+          background 0.2s;
+      }
+      .to-top.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+      }
+      .to-top:hover {
+        background: var(--lime);
+      }
+      .to-top svg {
+        width: 20px;
+        height: 20px;
+      }
       @keyframes wa-pulse {
         0% {
           transform: scale(1);
@@ -796,8 +834,15 @@
         .wa-bubble {
           display: none;
         }
-        body.menu-open .wa-float {
+        body.menu-open .wa-float,
+        body.menu-open .to-top {
           display: none;
+        }
+        .to-top {
+          right: 21px;
+          bottom: 84px;
+          width: 46px;
+          height: 46px;
         }
         footer .wrap {
           padding-bottom: 90px;
@@ -1239,6 +1284,24 @@
         </svg>
       </span>
     </a>
+    <button
+      class="to-top"
+      id="to-top"
+      type="button"
+      aria-label="Revenir en haut de la page"
+      title="Revenir en haut"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M12 19V5M5 12l7-7 7 7"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
     <script>
       const WA_NUMBER = "2250575751118";
 
@@ -1466,6 +1529,36 @@
           if (win) win.opener = null;
           else window.location.href = url;
         });
+
+      // Bouton retour en haut
+      const toTop = document.getElementById("to-top");
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      );
+      let ticking = false;
+      function updateToTop() {
+        toTop.classList.toggle("visible", window.scrollY > 600);
+        ticking = false;
+      }
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(updateToTop);
+          }
+        },
+        { passive: true },
+      );
+      updateToTop();
+      toTop.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: reduceMotion.matches ? "auto" : "smooth",
+        });
+        // Remet le focus clavier en haut de page
+        document.querySelector(".brand").focus({ preventScroll: true });
+      });
     </script>
   </body>
 </html>
