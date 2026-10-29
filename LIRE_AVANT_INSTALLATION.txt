@@ -1,7 +1,15 @@
 COACHING SUCCÈS — INSTALLATION
 
 Cette archive contient la copie du site « coaching-succes-apercu ».
-index.html contient la page, les styles et le JavaScript. Aucun module ni base de données à installer.
+Aucun module ni base de données à installer.
+
+STRUCTURE DU PROJET
+  index.html                 la page (contenu, SEO, données structurées)
+  assets/css/style.css       tous les styles et animations
+  assets/js/motion-init.js   active les animations (chargé dans <head>)
+  assets/js/main.js          menu, formulaire WhatsApp, anti-robots, animations
+  robots.txt, sitemap.xml    référencement
+Déposer TOUT le dossier (y compris « assets ») : sans lui, la page s'affiche sans mise en forme.
 
 CONSULTATION HORS CONNEXION
 Décompresser le ZIP puis ouvrir index.html dans un navigateur sur ordinateur.
