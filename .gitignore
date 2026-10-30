@@ -1,0 +1,5 @@
+# .htaccess propre à chaque serveur (cPanel le gère) : modèle dans _livraison/htaccess-modele.txt
+/.htaccess
+
+# Cache d'outil de design
+.impeccable/
