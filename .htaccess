@@ -1,5 +1,13 @@
 # Apache uniquement. Fusionner avec les règles existantes après sauvegarde.
 DirectoryIndex index.html
+Options -Indexes
+
+# Ne jamais exposer l'historique git, les documents internes ni les caches d'outils
+<IfModule mod_alias.c>
+RedirectMatch 404 ^/(\.git|\.impeccable|_livraison)(/|$)
+RedirectMatch 404 /\.(gitignore|gitattributes)$
+</IfModule>
+
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteRule ^index\.php$ / [R=301,L,NE]

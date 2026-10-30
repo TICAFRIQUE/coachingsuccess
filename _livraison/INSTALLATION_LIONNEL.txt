@@ -2,8 +2,10 @@ COACHING-SUCCÈS — INSTALLATION SUR VOTRE HÉBERGEMENT
 VERSION RÉVISÉE — 29 octobre 2026 — À remettre à Lionnel
 
 CONTENU
-Le dossier site/ contient les fichiers à publier : index.html, assets/ (portrait et site.js), robots.txt, sitemap.xml et .htaccess (fichier caché).
-Le présent guide, la fiche de recette et APERCU_HORS_LIGNE.html restent sur votre ordinateur : ne pas les publier. APERCU_HORS_LIGNE.html est une copie autonome de consultation ; installer le contenu du dossier site/.
+Mise à jour du 30 octobre 2026 : le site est désormais à la RACINE du projet (plus de dossier site/).
+Fichiers à publier, à la racine du domaine : index.html, assets/ (logo, portrait et site.js), robots.txt, sitemap.xml et .htaccess (fichier caché).
+Le dossier _livraison/ (ce guide, la fiche de recette et APERCU_HORS_LIGNE.html) est réservé à l'installation : ne pas le publier. S'il est déployé par erreur (par exemple via git), le .htaccess le rend inaccessible, ainsi que le dossier .git.
+APERCU_HORS_LIGNE.html est une copie autonome de consultation ; installer les fichiers listés ci-dessus.
 Site statique : aucun abonnement ChatGPT, aucune base de données, aucun module WordPress, aucune compilation ni installation de logiciel requis. Compatible avec un hébergement servant des fichiers HTML. WhatsApp, téléphone et messagerie utilisent les applications du visiteur.
 
 1. PRÉPARER ET CONFIRMER
@@ -24,14 +26,15 @@ Site statique : aucun abonnement ChatGPT, aucune base de données, aucun module 
 
 3. TESTER AVANT LA BASCULE
 - Décompresser l'archive sur l'ordinateur.
-- Ouvrir site/index.html pour voir le rendu. Les liens WhatsApp et mail nécessitent une connexion et une application adaptée.
-- Si possible, transférer d'abord le contenu de site/ dans un dossier temporaire de l'hébergement, protégé ou exclu de l'indexation, et tester l'affichage.
+- Ouvrir index.html pour voir le rendu. Les liens WhatsApp et mail nécessitent une connexion et une application adaptée.
+- Si possible, transférer d'abord les fichiers à publier dans un dossier temporaire de l'hébergement, protégé ou exclu de l'indexation, et tester l'affichage.
 - Ne pas laisser une copie de test indexable après lancement.
 
 4. INSTALLER
-Méthode panneau d'hébergement : ouvrir le gestionnaire de fichiers, accéder à la racine du domaine, transférer les fichiers du dossier site/.
+Méthode panneau d'hébergement : ouvrir le gestionnaire de fichiers, accéder à la racine du domaine, transférer les fichiers à publier (voir CONTENU).
 Méthode SFTP : utiliser les identifiants fournis par l'hébergeur et transférer ces mêmes fichiers vers la racine du domaine. Préférer SFTP lorsqu'il est disponible.
-IMPORTANT : copier le CONTENU de site/, pas le dossier installation/ ni le dossier site/ lui-même. index.html doit se trouver directement à la racine du domaine ; assets/ doit être au même niveau.
+IMPORTANT : ne pas copier le dossier _livraison/. index.html doit se trouver directement à la racine du domaine ; assets/ doit être au même niveau.
+Déploiement depuis GitHub (git pull dans la racine du domaine) : possible, la structure est prévue pour. Vérifier ensuite que https://coachingsucces.ci/.git/ et https://coachingsucces.ci/_livraison/ répondent « introuvable » (404) ou « interdit » (403).
 - Déplacer les anciens fichiers du site après sauvegarde pour éviter qu'un ancien index.php soit encore servi à la place du nouveau index.html. Préserver les fichiers de validation de domaine, .well-known et tout élément utilisé par d'autres services.
 - Examiner l'ancien .htaccess avant de le remplacer. Fusionner les règles utiles avec le fichier fourni ; ne pas écraser une configuration sans lecture.
 - Sur Apache avec mod_rewrite, le .htaccess fourni privilégie index.html et redirige les anciennes pages connues. Sur Nginx ou un autre serveur, configurer des redirections équivalentes dans le panneau ou auprès de l'hébergeur.
@@ -85,7 +88,7 @@ Le site a été vérifié dans le navigateur de développement pour l'affichage 
 - Garder une sauvegarde avant chaque modification future. Le site est modifiable dans index.html ; conserver le dossier assets/ avec lui.
 
 MISE À JOUR DU PORTRAIT
-Photo retenue : _38A6411.jpg (assis avec un carnet). Version web : site/assets/sekou-doumbia-profil.jpg.
+Photo retenue : _38A6411.jpg (assis avec un carnet). Version web : assets/sekou-doumbia-profil.jpg.
 Le portrait de l’accueil, l’image de partage et l’aperçu hors ligne ont été mis à jour. Remplacer aussi index.html, pas seulement l’image.
 Pour le partage, une ancienne vignette peut rester en cache sur les réseaux sociaux.
 
