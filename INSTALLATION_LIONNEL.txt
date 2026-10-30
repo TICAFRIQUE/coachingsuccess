@@ -1,0 +1,93 @@
+COACHING-SUCCÈS — INSTALLATION SUR VOTRE HÉBERGEMENT
+VERSION RÉVISÉE — 29 octobre 2026 — À remettre à Lionnel
+
+CONTENU
+Le dossier site/ contient les fichiers à publier : index.html, assets/ (portrait et site.js), robots.txt, sitemap.xml et .htaccess (fichier caché).
+Le présent guide, la fiche de recette et APERCU_HORS_LIGNE.html restent sur votre ordinateur : ne pas les publier. APERCU_HORS_LIGNE.html est une copie autonome de consultation ; installer le contenu du dossier site/.
+Site statique : aucun abonnement ChatGPT, aucune base de données, aucun module WordPress, aucune compilation ni installation de logiciel requis. Compatible avec un hébergement servant des fichiers HTML. WhatsApp, téléphone et messagerie utilisent les applications du visiteur.
+
+1. PRÉPARER ET CONFIRMER
+- Vérifier que le domaine coachingsucces.ci et l'hébergement sont actifs.
+- Identifier dans le panneau d'hébergement le dossier racine EXACT du domaine : public_html, www ou autre selon le prestataire. Ne pas supposer qu'il s'agit du premier dossier visible.
+- Vérifier avec M. Doumbia : téléphone +225 07 07 29 99 43, WhatsApp associé à ce numéro, adresse info@coachingsucces.ci, cabinet Riviera Bonoumin, horaires lundi-vendredi 9 h-12 h / 14 h-16 h, intitulés de certifications.
+- Cette version comporte un numéro confirmé sur le site d'origine. Ajouter un second numéro uniquement après validation de M. Doumbia.
+- Vérifier que la boîte info@coachingsucces.ci existe et reçoit des messages. Le site ne crée pas cette boîte.
+- Les certifications reprennent le parcours communiqué par M. Doumbia (ICI 2012, maître-praticien PNL 2013, CLEEN, EFT). Les diplômes n’ont pas été examinés : faire valider leurs intitulés par M. Doumbia avant publication, sans ajouter de preuve ou de label non fourni.
+- L’adresse précise et le point GPS ne sont pas disponibles dans le dossier : le bouton « Demander la localisation » ouvre WhatsApp. Ajouter ensuite le repère et un lien de localisation exact validés par M. Doumbia ; ne pas utiliser un point approximatif pour le cabinet.
+
+2. SAUVEGARDER AVANT DE REMPLACER
+- Télécharger TOUS les fichiers de l'ancien site, y compris les fichiers cachés et sa configuration.
+- Exporter sa base de données si elle existe, même si le nouveau site n'en utilise pas.
+- Conserver une copie de la configuration du domaine, de la version PHP et des règles de redirection.
+- Garder la sauvegarde hors du dossier public, et en remettre une copie récupérable à M. Doumbia.
+- Ne pas modifier les réglages de messagerie ni supprimer les boîtes mail. Ne pas changer les DNS si le domaine pointe déjà vers le bon hébergement.
+
+3. TESTER AVANT LA BASCULE
+- Décompresser l'archive sur l'ordinateur.
+- Ouvrir site/index.html pour voir le rendu. Les liens WhatsApp et mail nécessitent une connexion et une application adaptée.
+- Si possible, transférer d'abord le contenu de site/ dans un dossier temporaire de l'hébergement, protégé ou exclu de l'indexation, et tester l'affichage.
+- Ne pas laisser une copie de test indexable après lancement.
+
+4. INSTALLER
+Méthode panneau d'hébergement : ouvrir le gestionnaire de fichiers, accéder à la racine du domaine, transférer les fichiers du dossier site/.
+Méthode SFTP : utiliser les identifiants fournis par l'hébergeur et transférer ces mêmes fichiers vers la racine du domaine. Préférer SFTP lorsqu'il est disponible.
+IMPORTANT : copier le CONTENU de site/, pas le dossier installation/ ni le dossier site/ lui-même. index.html doit se trouver directement à la racine du domaine ; assets/ doit être au même niveau.
+- Déplacer les anciens fichiers du site après sauvegarde pour éviter qu'un ancien index.php soit encore servi à la place du nouveau index.html. Préserver les fichiers de validation de domaine, .well-known et tout élément utilisé par d'autres services.
+- Examiner l'ancien .htaccess avant de le remplacer. Fusionner les règles utiles avec le fichier fourni ; ne pas écraser une configuration sans lecture.
+- Sur Apache avec mod_rewrite, le .htaccess fourni privilégie index.html et redirige les anciennes pages connues. Sur Nginx ou un autre serveur, configurer des redirections équivalentes dans le panneau ou auprès de l'hébergeur.
+- Permissions usuelles si nécessaires : dossiers 755 et fichiers 644 ; ne pas utiliser 777.
+
+5. ACTIVER HTTPS ET L'ADRESSE PRINCIPALE
+- Activer un certificat valide pour coachingsucces.ci et, si utilisé, www.coachingsucces.ci depuis le panneau d'hébergement.
+- Choisir https://coachingsucces.ci/ comme adresse principale, déjà indiquée dans les métadonnées et le sitemap fournis.
+- Activer la redirection HTTP vers HTTPS depuis le panneau ; rediriger www vers l'adresse principale si www est configuré. Tester l'absence de boucle de redirection.
+- Si une autre adresse principale est retenue, adapter canonical, og:url, og:image, robots.txt et sitemap.xml avant publication.
+- Le fichier .htaccess ne force pas HTTPS afin de laisser l'hébergeur gérer correctement les éventuels proxys et certificats.
+
+6. PRÉSERVER LES ANCIENS LIENS
+Redirections permanentes incluses pour Apache :
+/index.php vers /
+/page-services vers /#accompagnements
+/page-qui-est-doumbia-sekou vers /#coach
+/prendre_rdv vers /#contact
+Les autres anciennes adresses, notamment blog et articles, doivent être inventoriées. Conserver les contenus utiles ou créer des redirections précises vers des contenus équivalents. Ne pas rediriger automatiquement tous les anciens articles vers l'accueil.
+
+7. VÉRIFIER LA MISE EN SERVICE
+Sur téléphone ET ordinateur, avec Wi-Fi puis réseau mobile :
+[ ] Le domaine ouvre bien la nouvelle page, sans connexion ChatGPT.
+[ ] Le certificat HTTPS est valide et aucune image ne manque.
+[ ] Le menu, les liens de navigation et les questions dépliantes fonctionnent.
+[ ] Les onglets « Pour vous » et « Pour votre entreprise » affichent leurs offres.
+[ ] Chaque lien d'offre sélectionne le bon sujet dans le formulaire.
+[ ] Le formulaire exige un prénom, reprend le sujet et le type de demande, et ouvre WhatsApp avec un message lisible et le BON destinataire : +225 07 07 29 99 43.
+[ ] Le bouton WhatsApp flottant reste visible en bas de l’écran sur téléphone.
+[ ] Le lien « Demander la localisation » prépare une demande d’accès au cabinet.
+[ ] Si WhatsApp ne s’ouvre pas, le lien de secours sous le formulaire permet de réessayer.
+[ ] Envoyer un vrai message d'essai depuis un téléphone et vérifier sa réception par M. Doumbia. L'envoi reste manuel dans WhatsApp ; le formulaire ne réserve pas automatiquement un créneau.
+[ ] Le lien téléphone lance le bon numéro ; le lien email ouvre la bonne adresse. Envoyer aussi un email d'essai et vérifier sa réception.
+[ ] Les anciennes adresses ci-dessus redirigent correctement.
+[ ] L'affichage reste lisible sans débordement sur petit écran et avec zoom.
+[ ] Aucun tarif n'est affiché.
+[ ] Le partage du lien sur WhatsApp/Facebook affiche le bon titre et le portrait. Une ancienne image peut rester temporairement en cache sur les plateformes.
+[ ] Aucun ancien index.php ni cache d'hébergement ne masque le nouveau site.
+Le site a été vérifié dans le navigateur de développement pour l'affichage et la sélection d'offres. Les livraisons WhatsApp/email, le certificat et les règles du serveur devront être vérifiés sur l'hébergement réel.
+
+8. RÉFÉRENCEMENT ET INFORMATIONS LÉGALES
+- Après ouverture publique, soumettre https://coachingsucces.ci/sitemap.xml dans Google Search Console et vérifier la propriété du domaine. Le fichier robots.txt autorise l'exploration ; cela ne garantit ni délai ni positionnement Google.
+- Mettre à jour les liens sur les profils professionnels, réseaux sociaux et fiche d'établissement si elle existe.
+- Avant ouverture publique, compléter les mentions de l'éditeur et de l'hébergeur ainsi que l'information sur la confidentialité selon la situation du cabinet. Aucun outil de mesure d'audience ni cookie publicitaire n'est intégré à ce dossier.
+- Le formulaire transmet uniquement le prénom et le sujet choisi à WhatsApp lorsque le visiteur l'ouvre ; éviter d'y demander des informations de santé sensibles. Une information de confidentialité devra expliquer l'usage de WhatsApp et la gestion des demandes par le cabinet.
+
+9. REMETTRE LES ACCÈS ET PRÉVOIR LE RETOUR ARRIÈRE
+- Remettre à M. Doumbia l'adresse finale, les accès au domaine et à l'hébergement via un moyen confidentiel, la sauvegarde initiale et une copie du nouveau site.
+- Confirmer par écrit les tests effectués et les éléments restant à compléter.
+- Si un défaut majeur apparaît, remettre les anciens fichiers et leur configuration depuis la sauvegarde ; rétablir la base si l'ancien site l'exige, puis vider le cache. Ne pas toucher aux emails.
+- Garder une sauvegarde avant chaque modification future. Le site est modifiable dans index.html ; conserver le dossier assets/ avec lui.
+
+MISE À JOUR DU PORTRAIT
+Photo retenue : _38A6411.jpg (assis avec un carnet). Version web : site/assets/sekou-doumbia-profil.jpg.
+Le portrait de l’accueil, l’image de partage et l’aperçu hors ligne ont été mis à jour. Remplacer aussi index.html, pas seulement l’image.
+Pour le partage, une ancienne vignette peut rester en cache sur les réseaux sociaux.
+
+LOGO — MISE À JOUR DU 30 OCTOBRE 2026
+Logo officiel fourni par M. Doumbia ajouté en haut et en bas du site. La version sur fond blanc est présentée dans un fichier SVG contenant l’image originale, sans redessiner le logo. Transférer assets/logo-coaching-succes.svg ainsi que le nouvel index.html. Vérifier sur téléphone et ordinateur après vidage du cache.

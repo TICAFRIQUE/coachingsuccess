@@ -1,0 +1,26 @@
+COACHING-SUCCÈS — TEST DE RÉCEPTION À EFFECTUER APRÈS INSTALLATION
+
+Destinataire attendu : +225 07 07 29 99 43.
+Aucune réception réelle n’a été vérifiée pendant la préparation du dossier.
+
+1. Ouvrir https://coachingsucces.ci/ depuis un téléphone distinct de celui du cabinet.
+2. Saisir le prénom « Test installation », choisir un sujet et « Demander un rendez-vous ».
+3. Cliquer sur « Préparer mon message WhatsApp ».
+4. Vérifier le numéro du destinataire et le texte avant tout envoi.
+5. Envoyer manuellement ce message de test dans WhatsApp.
+6. M. Doumbia confirme l’avoir reçu et répond « Test reçu ».
+7. Vérifier que le téléphone d’essai reçoit cette réponse.
+8. Refaire le parcours avec le bouton WhatsApp flottant et le bouton de localisation.
+9. Envoyer séparément un email de test à info@coachingsucces.ci, puis vérifier réception et réponse.
+10. Tester sur réseau mobile et depuis un ordinateur.
+
+Date et heure : __________________
+Test réalisé par : __________________
+Message reçu par M. Doumbia : OUI / NON
+Réponse reçue sur le téléphone d’essai : OUI / NON
+Email reçu : OUI / NON
+Bouton localisation : OK / À CORRIGER
+HTTPS et anciennes adresses : OK / À CORRIGER
+Observations : __________________
+
+En cas d’échec : vérifier l’association du numéro à WhatsApp et la connexion Internet, puis utiliser le lien de secours. Pour l’email, vérifier la boîte et les indésirables depuis cPanel. Le formulaire ne passe pas par PHP et ne crée pas de rendez-vous automatique.

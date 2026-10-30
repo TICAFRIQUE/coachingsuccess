@@ -1,0 +1,9 @@
+# Apache uniquement. Fusionner avec les règles existantes après sauvegarde.
+DirectoryIndex index.html
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^index\.php$ / [R=301,L,NE]
+RewriteRule ^page-services/?$ /#accompagnements [R=301,L,NE]
+RewriteRule ^page-qui-est-doumbia-sekou/?$ /#coach [R=301,L,NE]
+RewriteRule ^prendre_rdv/?$ /#contact [R=301,L,NE]
+</IfModule>
