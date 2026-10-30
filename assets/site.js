@@ -31,3 +31,14 @@ const replay=new MutationObserver(list=>list.forEach(m=>{const panel=m.target;if
 document.querySelectorAll('.cards[role=tabpanel]').forEach(p=>replay.observe(p,{attributes:true,attributeFilter:['hidden']}));
 window.csRevealReady=true;
 })();
+
+// ===== Bouton retour en haut =====
+(function(){
+const btn=document.getElementById('to-top');if(!btn)return;
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+let ticking=false;
+const update=()=>{btn.classList.toggle('visible',window.scrollY>600);ticking=false;};
+window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(update);}},{passive:true});
+update();
+btn.addEventListener('click',()=>{window.scrollTo({top:0,behavior:reduce.matches?'auto':'smooth'});const brand=document.querySelector('.brand');if(brand)brand.focus({preventScroll:true});});
+})();
